@@ -27,4 +27,8 @@ export class CurrenciesRepository {
       data,
     });
   }
+
+  async findAll(): Promise<CurrencyEntity[]> {
+    return await this.prisma.currency.findMany();
+  }
 }
