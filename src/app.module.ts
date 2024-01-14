@@ -1,3 +1,4 @@
+import { HttpModule } from '@nestjs/axios';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { CurrenciesModule } from './application/currencies/currencies.module';
@@ -11,6 +12,7 @@ import { DatabaseModule } from './infra/database.module';
     }),
     DatabaseModule,
     CurrenciesModule,
+    HttpModule,
   ],
   controllers: [],
   providers: [HttpService],
