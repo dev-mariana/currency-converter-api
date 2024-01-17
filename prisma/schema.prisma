@@ -9,16 +9,11 @@ datasource db {
 
 model Currency {
   id         String    @id @default(uuid())
-  name       String
-  code       String
-  code_in    String
-  bid        Float
-  ask        Float
-  var_bid    Float
-  pct_change Float
-  high       Float
-  low        Float
-  timestamp  DateTime
+  base_code  String    @unique
+  from       String    @unique
+  to         String    @unique
+  amount     Float
+  result     Float
   created_at DateTime  @default(now())
   updated_at DateTime? @updatedAt
 
