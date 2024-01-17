@@ -9,16 +9,11 @@ export class CurrenciesRepository {
 
   async create(currency: CurrencyEntity): Promise<CurrencyEntity> {
     const data: Prisma.CurrencyCreateInput = {
-      name: currency.name,
-      code: currency.code,
-      code_in: currency.code_in,
-      bid: currency.bid,
-      ask: currency.ask,
-      var_bid: currency.var_bid,
-      pct_change: currency.pct_change,
-      high: currency.high,
-      low: currency.low,
-      timestamp: currency.timestamp,
+      base_code: currency.base_code,
+      from: currency.from,
+      to: currency.to,
+      amount: currency.amount,
+      result: currency.result,
       created_at: currency.created_at,
       updated_at: currency.updated_at,
     };

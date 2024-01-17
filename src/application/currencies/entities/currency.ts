@@ -2,16 +2,11 @@ import { Currency } from '@prisma/client';
 
 export class CurrencyEntity implements Currency {
   id: string;
-  name: string;
-  code: string;
-  code_in: string;
-  bid: number;
-  ask: number;
-  var_bid: number;
-  pct_change: number;
-  high: number;
-  low: number;
-  timestamp: Date;
+  base_code: string;
+  from: string;
+  to: string;
+  amount: number;
+  result: number;
   created_at: Date;
   updated_at: Date;
 }
