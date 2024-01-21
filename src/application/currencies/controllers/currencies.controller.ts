@@ -1,5 +1,5 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
-import { CurrenciesDTO } from '../dto/currencies.dto';
+import { ParamsDTO } from '../dto/params.dto';
 import { CurrenciesService } from '../services/currencies.service';
 
 @Controller('currencies')
@@ -8,8 +8,8 @@ export class CurrenciesController {
 
   @Get(':from/:to/')
   async convertCurrency(
-    @Param() params: CurrenciesDTO,
-    @Query('amount') amount: CurrenciesDTO['amount'],
+    @Param() params: ParamsDTO,
+    @Query('amount') amount: ParamsDTO['amount'],
   ): Promise<number> {
     return await this.currenciesService.convertCurrency({ ...params, amount });
   }

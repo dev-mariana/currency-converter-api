@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class CurrenciesDTO {
+export class ParamsDTO {
   @IsString()
   @IsNotEmpty()
   from: string;
