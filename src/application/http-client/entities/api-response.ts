@@ -7,5 +7,5 @@ export interface ApiResponse {
   time_next_update_unix: number;
   time_next_update_utc: Date;
   base_code: string;
-  conversion_rates: number[];
+  conversion_rates: { [currency: string]: number };
 }
