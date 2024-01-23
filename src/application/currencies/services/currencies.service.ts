@@ -53,4 +53,8 @@ export class CurrenciesService {
       throw new Error(error);
     }
   }
+
+  async findCurrencies(): Promise<CurrencyEntity[]> {
+    return await this.currenciesRepository.findAll();
+  }
 }
