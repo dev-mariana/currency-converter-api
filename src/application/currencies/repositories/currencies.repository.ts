@@ -2,20 +2,19 @@ import { Injectable } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from 'src/infra/prisma/prisma.service';
 import { CurrencyEntity } from '../entities/currency';
+import { Currency } from '../interfaces/currency.interface';
 
 @Injectable()
 export class CurrenciesRepository {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(currency: CurrencyEntity): Promise<CurrencyEntity> {
+  async create(currency: Currency): Promise<CurrencyEntity> {
     const data: Prisma.CurrencyCreateInput = {
-      base_code: currency.base_code,
+      code: currency.code,
       from: currency.from,
       to: currency.to,
       amount: currency.amount,
       result: currency.result,
-      created_at: currency.created_at,
-      updated_at: currency.updated_at,
     };
 
     return await this.prisma.currency.create({
