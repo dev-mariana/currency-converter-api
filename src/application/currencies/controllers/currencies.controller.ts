@@ -19,4 +19,9 @@ export class CurrenciesController {
   async findCurrencies(): Promise<CurrencyEntity[]> {
     return await this.currenciesService.findCurrencies();
   }
+
+  @Get(':id')
+  async findCurrency(@Param('id') id: string): Promise<CurrencyEntity> {
+    return await this.currenciesService.findCurrency(id);
+  }
 }

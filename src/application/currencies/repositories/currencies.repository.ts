@@ -25,4 +25,8 @@ export class CurrenciesRepository {
   async findAll(): Promise<CurrencyEntity[]> {
     return await this.prisma.currency.findMany();
   }
+
+  async findCurrency(id: string): Promise<CurrencyEntity> {
+    return await this.prisma.currency.findUnique({ where: { id } });
+  }
 }

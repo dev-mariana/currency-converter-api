@@ -57,4 +57,14 @@ export class CurrenciesService {
   async findCurrencies(): Promise<CurrencyEntity[]> {
     return await this.currenciesRepository.findAll();
   }
+
+  async findCurrency(id: string): Promise<CurrencyEntity> {
+    const currency = await this.currenciesRepository.findCurrency(id);
+
+    if (!currency) {
+      throw new Error('Currency not found.');
+    }
+
+    return currency;
+  }
 }
