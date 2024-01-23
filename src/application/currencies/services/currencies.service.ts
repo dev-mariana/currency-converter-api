@@ -12,7 +12,7 @@ export class CurrenciesService {
     private readonly currenciesRepository: CurrenciesRepository,
   ) {}
 
-  async convertCurrency(params: ParamsDTO): Promise<number> {
+  async convertCurrency(params: ParamsDTO): Promise<CurrencyEntity> {
     const { amount } = params;
     const [from, to] = this.normalizeParams(params);
 
@@ -34,9 +34,9 @@ export class CurrenciesService {
       result: convertedAmount,
     };
 
-    await this.createCurrency(currency);
+    const createdCurrency = await this.createCurrency(currency);
 
-    return convertedAmount;
+    return createdCurrency;
   }
 
   private normalizeParams({ from, to }: ParamsDTO): string[] {
