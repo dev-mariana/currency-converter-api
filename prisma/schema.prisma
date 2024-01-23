@@ -9,9 +9,9 @@ datasource db {
 
 model Currency {
   id         String    @id @default(uuid())
-  base_code  String    @unique
-  from       String    @unique
-  to         String    @unique
+  code       String
+  from       String
+  to         String
   amount     Float
   result     Float
   created_at DateTime  @default(now())
