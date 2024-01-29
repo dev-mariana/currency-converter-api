@@ -1,11 +1,20 @@
-FROM node:18-alpine3.18
+FROM node:18 
 
 WORKDIR /app
 
-COPY . .
+COPY package*.json ./
+COPY prisma ./prisma/
 
 RUN npm install
 
-EXPOSE 8080
+RUN npx prisma generate
 
-CMD ["npm", "run", "start:prod"]
+COPY . .
+
+EXPOSE 3000
+
+ENV NODE_ENV production
+
+RUN npm run build
+
+CMD [ "npm", "run", "start:prod" ]

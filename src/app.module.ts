@@ -8,6 +8,7 @@ import { DatabaseModule } from './infra/database.module';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: ['.env, .env.development'],
     }),
     DatabaseModule,
     CurrenciesModule,
